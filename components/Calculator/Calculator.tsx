@@ -71,7 +71,6 @@ export const Calculator = (props: ICalculatorProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.display}>
-        <Switch></Switch>
         <Text style={styles.topText}>{firstValue + operator}</Text>
         <Text style={styles.text}>{displayValue}</Text>
       </View>
