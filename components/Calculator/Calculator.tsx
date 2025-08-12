@@ -22,10 +22,17 @@ export const Calculator = (props: ICalculatorProps) => {
     operator,
   });
 
+  // хендлер для %
+  const handlePercent = () => {
+    if (!firstValue) return;
+    const num = parseFloat(displayValue);
+    const percent = ((parseFloat(firstValue) * num) / 100).toString();
+    setDisplayValue(percent);
+  };
+
   // [хендлер для кнопки "="]
   const handleTotal = useCallback(() => {
-    calculate();
-    setDisplayValue(calculate);
+    setDisplayValue(calculate());
     setOperator("");
     setFirstValue("");
   }, [calculate]);
@@ -67,7 +74,7 @@ export const Calculator = (props: ICalculatorProps) => {
       setDisplayValue((prev) => prev.slice(0, -1));
     }
   }, [displayValue]);
-
+  // `Степоча ты ювелир!`
   return (
     <View style={styles.container}>
       <View style={styles.display}>
@@ -85,6 +92,8 @@ export const Calculator = (props: ICalculatorProps) => {
               ? handleBackSpace
               : button.operatorType === "reset"
               ? handleReset
+              : button.operatorType === "percent"
+              ? handlePercent
               : handleTotal; //последний хендлер для кнопки "равно"
 
           return (

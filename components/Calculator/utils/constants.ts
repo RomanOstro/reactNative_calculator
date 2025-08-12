@@ -1,5 +1,11 @@
 type TButtonType = "top" | "right" | "digit";
-type TOperatorType = "number" | "reset" | "operator" | "backSpace" | "result";
+type TOperatorType =
+  | "number"
+  | "reset"
+  | "operator"
+  | "backSpace"
+  | "result"
+  | "percent";
 
 export interface ICalculateButton {
   value: string;
@@ -10,7 +16,7 @@ export interface ICalculateButton {
 export const buttons: ICalculateButton[] = [
   { value: "AC", type: "top", operatorType: "reset" },
   { value: "⌫", type: "top", operatorType: "backSpace" },
-  { value: "%", type: "top", operatorType: "operator" },
+  { value: "%", type: "top", operatorType: "percent" },
   { value: "/", type: "right", operatorType: "operator" },
   { value: "7", type: "digit", operatorType: "number" },
   { value: "8", type: "digit", operatorType: "number" },

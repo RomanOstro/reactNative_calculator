@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { TOperatorType } from "../types/type";
 
 interface ICalculateParams {
@@ -30,9 +29,6 @@ export const useCalculate = ({
 
       case "*":
         return (firstNum * secondNum).toString();
-
-      case "%":
-        return (firstNum % secondNum).toString();
 
       default:
         return "0";
